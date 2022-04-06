@@ -31,6 +31,7 @@
             this.Intro = new System.Windows.Forms.LinkLabel();
             this.Calculator = new System.Windows.Forms.LinkLabel();
             this.linkLabelProgress = new System.Windows.Forms.LinkLabel();
+            this.linkLabel2048 = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // Intro
@@ -69,11 +70,24 @@
             this.linkLabelProgress.Text = "Индикация";
             this.linkLabelProgress.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelProgress_LinkClicked);
             // 
+            // linkLabel2048
+            // 
+            this.linkLabel2048.AutoSize = true;
+            this.linkLabel2048.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.linkLabel2048.Location = new System.Drawing.Point(23, 231);
+            this.linkLabel2048.Name = "linkLabel2048";
+            this.linkLabel2048.Size = new System.Drawing.Size(357, 25);
+            this.linkLabel2048.TabIndex = 2;
+            this.linkLabel2048.TabStop = true;
+            this.linkLabel2048.Text = "Событие и взаимодействие (2048)";
+            this.linkLabel2048.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2048_LinkClicked);
+            // 
             // Portal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.linkLabel2048);
             this.Controls.Add(this.linkLabelProgress);
             this.Controls.Add(this.Calculator);
             this.Controls.Add(this.Intro);
@@ -89,5 +103,6 @@
         private LinkLabel Intro;
         private LinkLabel Calculator;
         private LinkLabel linkLabelProgress;
+        private LinkLabel linkLabel2048;
     }
 }
