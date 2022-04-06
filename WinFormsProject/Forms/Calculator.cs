@@ -9,19 +9,25 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace WinForms.Forms
 {
     public partial class Calculator : Form
     {
-        public Calculator()
+        private readonly NLog.Logger _logger;
+       
+        public Calculator(NLog.Logger logger)
         {
             InitializeComponent();
+           _logger= logger;
+
         }
         public static bool BlockOperator { get; set; }
 
         static Calculator()
         {
             BlockOperator = true;
+
         }
 
         private void Calculator_Load(object sender, EventArgs e)
@@ -45,7 +51,7 @@ namespace WinForms.Forms
             }
 
             if (clicked.Text.Equals("+/-"))
-            {
+            {   
                 if (richTextBox.Text.StartsWith("-"))
                 {
                     richTextBox.Text = richTextBox.Text.Substring(1);
@@ -99,5 +105,5 @@ namespace WinForms.Forms
             richTextBox.Text = "0";
             History.Text = String.Empty;
         }
-    }
+    }   
 }

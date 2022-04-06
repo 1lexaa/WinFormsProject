@@ -7,14 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Practices.Unity;
 
 namespace WinForms.Forms
 {
     public partial class Portal : Form
     {
-        public Portal()
+        private readonly NLog.Logger _logger;
+        public Portal(NLog.Logger logger)
         {
             InitializeComponent();
+            _logger = logger;
         }
 
         private void Intro_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -24,7 +27,12 @@ namespace WinForms.Forms
 
         private void Calculator_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            new Calculator().ShowDialog();
+            new Calculator(_logger).ShowDialog();
+        }
+
+        private void linkLabelProgress_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Program.Container.Resolve<Forms.ProgressForm>().ShowDialog();
         }
     }
 }

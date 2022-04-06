@@ -30,6 +30,7 @@
         {
             this.Intro = new System.Windows.Forms.LinkLabel();
             this.Calculator = new System.Windows.Forms.LinkLabel();
+            this.linkLabelProgress = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // Intro
@@ -48,7 +49,7 @@
             // 
             this.Calculator.AutoSize = true;
             this.Calculator.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Calculator.Location = new System.Drawing.Point(25, 86);
+            this.Calculator.Location = new System.Drawing.Point(23, 91);
             this.Calculator.Name = "Calculator";
             this.Calculator.Size = new System.Drawing.Size(109, 25);
             this.Calculator.TabIndex = 2;
@@ -56,11 +57,24 @@
             this.Calculator.Text = "Calculator";
             this.Calculator.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Calculator_LinkClicked);
             // 
+            // linkLabelProgress
+            // 
+            this.linkLabelProgress.AutoSize = true;
+            this.linkLabelProgress.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.linkLabelProgress.Location = new System.Drawing.Point(23, 162);
+            this.linkLabelProgress.Name = "linkLabelProgress";
+            this.linkLabelProgress.Size = new System.Drawing.Size(121, 25);
+            this.linkLabelProgress.TabIndex = 2;
+            this.linkLabelProgress.TabStop = true;
+            this.linkLabelProgress.Text = "Индикация";
+            this.linkLabelProgress.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelProgress_LinkClicked);
+            // 
             // Portal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.linkLabelProgress);
             this.Controls.Add(this.Calculator);
             this.Controls.Add(this.Intro);
             this.Name = "Portal";
@@ -74,5 +88,6 @@
 
         private LinkLabel Intro;
         private LinkLabel Calculator;
+        private LinkLabel linkLabelProgress;
     }
 }

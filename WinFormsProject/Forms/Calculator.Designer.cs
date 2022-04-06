@@ -93,7 +93,7 @@
             // 
             // buttonClearAll
             // 
-            this.buttonClearAll.BackColor = System.Drawing.Color.IndianRed;
+            this.buttonClearAll.BackColor = System.Drawing.Color.DarkRed;
             this.buttonClearAll.FlatAppearance.BorderSize = 0;
             this.buttonClearAll.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonClearAll.Font = new System.Drawing.Font("Microsoft YaHei UI", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
