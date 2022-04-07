@@ -208,12 +208,12 @@ namespace WinForms.Forms
           
                 if (res < 10 && res > 0)
                     comboBoxTime.Items.Add(content);
-                else MessageBox.Show("Инвалид инпут! Введите дробное число от 0 до 10");
+                else MessageBox.Show("Invalid input Введите дробное число от 0 до 10");
             }
             catch (Exception ex) // исключение
             {
                 _logger.Warn(ex);
-                MessageBox.Show("Инвалид инпут! Введите дробное число от 0 до 10");
+                MessageBox.Show("Invalid input Введите дробное число от 0 до 10");
             }
         }
 
