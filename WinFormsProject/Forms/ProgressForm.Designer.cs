@@ -33,10 +33,11 @@
             this.buttonStop = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.listBoxStyle = new System.Windows.Forms.ListBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.comboBoxTime = new System.Windows.Forms.ComboBox();
             this.buttonRollback = new System.Windows.Forms.Button();
             this.buttonContinue = new System.Windows.Forms.Button();
+            this.buttonAdd = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.comboBoxTime = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // progressBar1
@@ -85,25 +86,6 @@
             this.listBoxStyle.TabIndex = 4;
             this.listBoxStyle.SelectedIndexChanged += new System.EventHandler(this.listBoxStyle_SelectedIndexChanged);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(394, 242);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 15);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "BarLine";
-            // 
-            // comboBoxTime
-            // 
-            this.comboBoxTime.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxTime.FormattingEnabled = true;
-            this.comboBoxTime.Location = new System.Drawing.Point(461, 239);
-            this.comboBoxTime.Name = "comboBoxTime";
-            this.comboBoxTime.Size = new System.Drawing.Size(121, 23);
-            this.comboBoxTime.TabIndex = 6;
-            this.comboBoxTime.SelectedIndexChanged += new System.EventHandler(this.comboBoxTime_SelectedIndexChanged);
-            // 
             // buttonRollback
             // 
             this.buttonRollback.Location = new System.Drawing.Point(286, 95);
@@ -124,13 +106,44 @@
             this.buttonContinue.UseVisualStyleBackColor = true;
             this.buttonContinue.Click += new System.EventHandler(this.buttonStop_Click);
             // 
+            // buttonAdd
+            // 
+            this.buttonAdd.Location = new System.Drawing.Point(502, 239);
+            this.buttonAdd.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(37, 22);
+            this.buttonAdd.TabIndex = 9;
+            this.buttonAdd.Text = "Add";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label2.Location = new System.Drawing.Point(534, 184);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 17);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Bar time";
+            // 
+            // comboBoxTime
+            // 
+            this.comboBoxTime.FormattingEnabled = true;
+            this.comboBoxTime.Location = new System.Drawing.Point(372, 181);
+            this.comboBoxTime.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.comboBoxTime.Name = "comboBoxTime";
+            this.comboBoxTime.Size = new System.Drawing.Size(132, 23);
+            this.comboBoxTime.TabIndex = 10;
+            // 
             // ProgressForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.comboBoxTime);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.comboBoxTime);
+            this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.listBoxStyle);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonContinue);
@@ -153,9 +166,10 @@
         private Button buttonStop;
         private Label label1;
         private ListBox listBoxStyle;
-        private Label label2;
-        private ComboBox comboBoxTime;
         private Button buttonRollback;
         private Button buttonContinue;
+        private Button buttonAdd;
+        private Label label2;
+        private ComboBox comboBoxTime;
     }
 }

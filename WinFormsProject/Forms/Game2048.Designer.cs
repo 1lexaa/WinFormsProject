@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panelDisplay = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.panelGameField = new System.Windows.Forms.Panel();
             this.cell33 = new System.Windows.Forms.Label();
             this.cell23 = new System.Windows.Forms.Label();
@@ -46,15 +47,27 @@
             this.cell10 = new System.Windows.Forms.Label();
             this.cell01 = new System.Windows.Forms.Label();
             this.cell00 = new System.Windows.Forms.Label();
+            this.panelSensor = new System.Windows.Forms.Panel();
+            this.panelDisplay.SuspendLayout();
             this.panelGameField.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelDisplay
             // 
+            this.panelDisplay.Controls.Add(this.label1);
             this.panelDisplay.Location = new System.Drawing.Point(12, 12);
             this.panelDisplay.Name = "panelDisplay";
-            this.panelDisplay.Size = new System.Drawing.Size(347, 100);
+            this.panelDisplay.Size = new System.Drawing.Size(240, 100);
             this.panelDisplay.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(93, 44);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 15);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "label1";
             // 
             // panelGameField
             // 
@@ -239,18 +252,30 @@
             this.cell00.Text = "0";
             this.cell00.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // panelSensor
+            // 
+            this.panelSensor.Location = new System.Drawing.Point(258, 12);
+            this.panelSensor.Name = "panelSensor";
+            this.panelSensor.Size = new System.Drawing.Size(118, 100);
+            this.panelSensor.TabIndex = 2;
+            this.panelSensor.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelSensor_MouseDown);
+            this.panelSensor.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panelSensor_MouseUp);
+            // 
             // Game2048
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(377, 512);
+            this.Controls.Add(this.panelSensor);
             this.Controls.Add(this.panelGameField);
             this.Controls.Add(this.panelDisplay);
             this.Name = "Game2048";
             this.Text = "Game2048";
             this.Load += new System.EventHandler(this.Game2048_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Game2048_KeyDown);
+            this.panelDisplay.ResumeLayout(false);
+            this.panelDisplay.PerformLayout();
             this.panelGameField.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -276,5 +301,7 @@
         private Label cell32;
         private Label cell31;
         private Label cell30;
+        private Label label1;
+        private Panel panelSensor;
     }
 }

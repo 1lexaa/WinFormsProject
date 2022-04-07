@@ -146,10 +146,10 @@ namespace WinForms.Forms
 
             switch (e.KeyCode)
             {
-                case Keys.Left: if (MoveLeft()) { AddCell(); ColorCells(); } else MessageBox.Show("No move"); break;
-                case Keys.Right: if (MoveRight()) { AddCell(); ColorCells(); } else MessageBox.Show("No move"); break;
-                case Keys.Up: if (MoveUp()) { AddCell(); ColorCells(); } else MessageBox.Show("No move"); break;
-                case Keys.Down: if (MoveDown()) { AddCell(); ColorCells(); } else MessageBox.Show("No move"); break;
+                case Keys.Left: MakeMove(MoveDirection.Left); break;
+                case Keys.Right: MakeMove(MoveDirection.Right); break;
+                case Keys.Up: MakeMove(MoveDirection.Up); break;
+                case Keys.Down: MakeMove(MoveDirection.Down); break;
 
 
                 case Keys.Escape: Close(); break;
@@ -296,7 +296,7 @@ namespace WinForms.Forms
                     }
                 }
             }
-            return true;
+            return wasMove;
         }
         private bool MoveDown()
         {
@@ -333,7 +333,30 @@ namespace WinForms.Forms
             return wasMove;
         }
 
+        private void MakeMove(MoveDirection direction)
+        {
+            switch(direction)
+            {
+                case MoveDirection.Left:
+                    if (MoveLeft()) { AddCell(); ColorCells(); return; } 
+                    break;
 
+                case MoveDirection.Right:
+                    if (MoveRight()) { AddCell(); ColorCells(); return; }
+                    break;
+
+
+                case MoveDirection.Up:
+                    if (MoveUp()) { AddCell(); ColorCells(); return; }
+                    break;
+
+                case MoveDirection.Down:
+                    if (MoveDown()) { AddCell(); ColorCells(); return; }
+                    break;
+
+                    
+            }
+        }
 
 
 
@@ -342,6 +365,66 @@ namespace WinForms.Forms
         private Label LabelAt(int i, int j)
         {
             return (Label)panelGameField.Controls.Find("cell" + i + j, false)[0];
+        }
+
+
+
+        #region Sensor
+
+        private Point DownPoint, UpPoint;
+        private void panelSensor_MouseUp(object sender, MouseEventArgs e)
+        {
+            DownPoint.X = e.X;
+            DownPoint.Y = e.Y;
+        }
+
+        private void panelSensor_MouseDown(object sender, MouseEventArgs e)
+        {
+            UpPoint.X = e.X;
+            UpPoint.Y = e.Y;
+            SensorMove();
+        }
+
+        private void SensorMove()
+        {
+            if(Math.Abs(UpPoint.X - DownPoint.X) <
+                Math.Abs(UpPoint.Y - DownPoint.Y) ) // dx < dy - vertical
+            {
+                if(UpPoint.Y < DownPoint.Y)
+                {
+                    
+                }
+
+                else
+                {
+
+                }
+            }
+            else // horizontal 
+            {
+                if(UpPoint.X < DownPoint.X) // left
+                {
+
+                }
+                else // right
+                {
+
+                }
+
+
+            }
+        }
+
+        #endregion
+
+
+        enum MoveDirection
+        {
+        Left,
+        Right,
+        Up,
+        Down
+
         }
 
 
@@ -361,5 +444,14 @@ namespace WinForms.Forms
  * В отличие от других событий в обработчики приходят аргументы типа KeyEventArgs 
  * содержащий информацию о клавише 
  * При зажатии клавиши посылается серия сообщений ( в зависимости от системных настроек ) Если нужно контроллировать однократное нажатие , то следует 
+ * 
+ */
+
+
+/*
+ * События мыши
+ * MouseDown - нажатие кнопки одно для всех кнопок. Узнать какая кнопка - по аргументам события e.Button
+ * MouseUp - отпускание кнопки
+ * MouseMove - движение мыши
  * 
  */

@@ -17,7 +17,7 @@ namespace WinForms.Forms
         private readonly NLog.Logger _logger;
         private readonly Random _random;
         private float _progressTime;
-        // private          bool        _stopPressed;
+        
         private int _progressState;
         private bool _rollback;
         private bool _stopped;
@@ -41,12 +41,12 @@ namespace WinForms.Forms
             comboBoxTime.Items.Add("1");
             comboBoxTime.Items.Add("2");
             comboBoxTime.Items.Add("3");
-            comboBoxTime.SelectedIndex = 0; // "1" - default index
+            comboBoxTime.SelectedIndex = 0; 
             _progressTime = 1;
 
             progressBar1.Minimum = 0;
             progressBar1.Maximum = 100;
-            // progressBar1.Value = 50;
+            
         }
         private void listBoxStyle_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -60,10 +60,10 @@ namespace WinForms.Forms
         {
             progressBar1.Value = _progressState;
         }
-        // Метод запуска по кнопке "Старт"
+        // Старт
         private void StartHandler(object obj)
         {
-            //  _stopPressed = false;
+            
             if (obj is not CancellationToken) return;
             CancellationToken token = (CancellationToken)obj;
             for (int i = _progressState; i <= progressBar1.Maximum; i++)
@@ -71,13 +71,13 @@ namespace WinForms.Forms
                 _progressState = i;
                 this.Invoke((Action)UpdateProgress);
                 Thread.Sleep(((int)_progressTime) * 10);
-                //if (_stopPressed) break;
-                // Проверка токена
+                
+                // Проверка 
                 if (token.IsCancellationRequested)
                 {
                     break;
                 }
-                // Прогресс бар достиг максимума - обнуление и мбокс
+                //  обнуление 
                 if (_progressState == progressBar1.Maximum)
                 {
                     MessageBox.Show("Done");
@@ -91,10 +91,10 @@ namespace WinForms.Forms
             }
         }
 
-        // Откат прогресс бара
+        // Откат 
         private void RollbackHandler(object obj)
         {
-            //  _stopPressed = false;
+           
             if (obj is not CancellationToken) return;
             CancellationToken token = (CancellationToken)obj;
             for (int i = _progressState; i >= progressBar1.Minimum; i--)
@@ -102,12 +102,12 @@ namespace WinForms.Forms
                 _progressState = i;
                 this.Invoke((Action)UpdateProgress);
                 Thread.Sleep(((int)_progressTime) * 10);
-                //if (_stopPressed) break;
+                
                 if (token.IsCancellationRequested)
                 {
                     break;
                 }
-                // Прогресс бар достиг минимума
+                // бар достиг минимума
                 if (_progressState == progressBar1.Minimum)
                 {
                     MessageBox.Show("Cancelled");
@@ -121,7 +121,7 @@ namespace WinForms.Forms
 
         }
 
-        // Метод для кпноки старта
+        // старт
         private void buttonStart_Click(object sender, EventArgs e)
         {
             cts = new CancellationTokenSource();
@@ -134,7 +134,7 @@ namespace WinForms.Forms
             buttonStop.Visible = true;
             Task.Run(() => StartHandler(cts.Token));
         }
-        // Метод для кнопки "Продолжить"
+        // Продолжить
         private void buttonContinue_Click(object sender, EventArgs e)
         {
             cts = new CancellationTokenSource();
@@ -146,7 +146,7 @@ namespace WinForms.Forms
             Task.Run(() => StartHandler(cts.Token));
         }
 
-        // Метод для кнопки "Откат"
+        // Откат
         private void buttonRollback_Click(object sender, EventArgs e)
         {
             cts = new CancellationTokenSource();
@@ -158,10 +158,10 @@ namespace WinForms.Forms
             _stopped = false;
             Task.Run(() => RollbackHandler(cts.Token));
         }
-        // Метод для кнопки "Стоп"
+        // Стоп
         private void buttonStop_Click(object sender, EventArgs e)
         {
-            // проверка на двойной стоп - отмена полная
+            // проверка на двойной стоп 
             if (_stopped)
             {
                 progressBar1.Value = progressBar1.Minimum;
@@ -173,7 +173,7 @@ namespace WinForms.Forms
             }
             else
             {
-                // _stopPressed = true;
+                
                 buttonContinue.Visible = true;
                 buttonRollback.Visible = true;
                 buttonStart.Visible = false;
@@ -186,7 +186,7 @@ namespace WinForms.Forms
 
         private void comboBoxTime_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //if (comboBoxTime.SelectedIndex == -1) return;
+            
             if (comboBoxTime.Text == String.Empty) return;
             _progressTime = Convert.ToSingle(comboBoxTime.Text);
 
@@ -196,24 +196,24 @@ namespace WinForms.Forms
         {
             // Создаем строку для контента из комбобокса
             String content = String.Empty;
-            // Проверяем: если есть точка - меняем на запятую
+            
             if (comboBoxTime.Text.Contains("."))
                 content = comboBoxTime.Text.Replace('.', ',');
             else content = comboBoxTime.Text;
 
             try
             {
-                // конвертируем в флоат 
+                // конверт
                 float res = Convert.ToSingle(content);
-                // проверка на допустимые значения
+          
                 if (res < 10 && res > 0)
                     comboBoxTime.Items.Add(content);
-                else MessageBox.Show("Invalid input! Введите дробное число от 0 до 10");
+                else MessageBox.Show("Инвалид инпут! Введите дробное число от 0 до 10");
             }
-            catch (Exception ex) // обработка исключения
+            catch (Exception ex) // исключение
             {
                 _logger.Warn(ex);
-                MessageBox.Show("Invalid input! Введите дробное число от 0 до 10");
+                MessageBox.Show("Инвалид инпут! Введите дробное число от 0 до 10");
             }
         }
 
