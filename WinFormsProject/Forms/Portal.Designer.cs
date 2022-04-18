@@ -32,13 +32,16 @@
             this.Calculator = new System.Windows.Forms.LinkLabel();
             this.linkLabelProgress = new System.Windows.Forms.LinkLabel();
             this.linkLabel2048 = new System.Windows.Forms.LinkLabel();
+            this.linkGdi = new System.Windows.Forms.LinkLabel();
+            this.linkProcess = new System.Windows.Forms.LinkLabel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // Intro
             // 
             this.Intro.AutoSize = true;
             this.Intro.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Intro.Location = new System.Drawing.Point(25, 29);
+            this.Intro.Location = new System.Drawing.Point(32, 25);
             this.Intro.Name = "Intro";
             this.Intro.Size = new System.Drawing.Size(54, 25);
             this.Intro.TabIndex = 1;
@@ -50,7 +53,7 @@
             // 
             this.Calculator.AutoSize = true;
             this.Calculator.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Calculator.Location = new System.Drawing.Point(23, 91);
+            this.Calculator.Location = new System.Drawing.Point(23, 60);
             this.Calculator.Name = "Calculator";
             this.Calculator.Size = new System.Drawing.Size(109, 25);
             this.Calculator.TabIndex = 2;
@@ -62,7 +65,7 @@
             // 
             this.linkLabelProgress.AutoSize = true;
             this.linkLabelProgress.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.linkLabelProgress.Location = new System.Drawing.Point(23, 162);
+            this.linkLabelProgress.Location = new System.Drawing.Point(23, 98);
             this.linkLabelProgress.Name = "linkLabelProgress";
             this.linkLabelProgress.Size = new System.Drawing.Size(121, 25);
             this.linkLabelProgress.TabIndex = 2;
@@ -74,7 +77,7 @@
             // 
             this.linkLabel2048.AutoSize = true;
             this.linkLabel2048.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.linkLabel2048.Location = new System.Drawing.Point(23, 231);
+            this.linkLabel2048.Location = new System.Drawing.Point(19, 136);
             this.linkLabel2048.Name = "linkLabel2048";
             this.linkLabel2048.Size = new System.Drawing.Size(357, 25);
             this.linkLabel2048.TabIndex = 2;
@@ -82,11 +85,51 @@
             this.linkLabel2048.Text = "Событие и взаимодействие (2048)";
             this.linkLabel2048.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2048_LinkClicked);
             // 
+            // linkGdi
+            // 
+            this.linkGdi.AutoSize = true;
+            this.linkGdi.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.linkGdi.Location = new System.Drawing.Point(23, 173);
+            this.linkGdi.Name = "linkGdi";
+            this.linkGdi.Size = new System.Drawing.Size(353, 25);
+            this.linkGdi.TabIndex = 3;
+            this.linkGdi.TabStop = true;
+            this.linkGdi.Text = "Графические возможности (GDI+)";
+            this.linkGdi.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkGdi_LinkClicked);
+            // 
+            // linkProcess
+            // 
+            this.linkProcess.AutoSize = true;
+            this.linkProcess.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.linkProcess.Location = new System.Drawing.Point(23, 209);
+            this.linkProcess.Name = "linkProcess";
+            this.linkProcess.Size = new System.Drawing.Size(112, 25);
+            this.linkProcess.TabIndex = 4;
+            this.linkProcess.TabStop = true;
+            this.linkProcess.Text = "Процессы";
+            this.linkProcess.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkProcess_LinkClicked);
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.linkLabel1.LinkBehavior = System.Windows.Forms.LinkBehavior.AlwaysUnderline;
+            this.linkLabel1.Location = new System.Drawing.Point(23, 251);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(110, 25);
+            this.linkLabel1.TabIndex = 5;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Паттерны";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // Portal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.linkProcess);
+            this.Controls.Add(this.linkGdi);
             this.Controls.Add(this.linkLabel2048);
             this.Controls.Add(this.linkLabelProgress);
             this.Controls.Add(this.Calculator);
@@ -104,5 +147,8 @@
         private LinkLabel Calculator;
         private LinkLabel linkLabelProgress;
         private LinkLabel linkLabel2048;
+        private LinkLabel linkGdi;
+        private LinkLabel linkProcess;
+        private LinkLabel linkLabel1;
     }
 }
