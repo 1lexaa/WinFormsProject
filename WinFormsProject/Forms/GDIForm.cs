@@ -156,7 +156,7 @@ namespace WinForms.Forms
                 X = this.Width / 2,
                 W = 100,
                 H = 15,
-                brush = new SolidBrush(Color.Tomato)
+                Brush = new SolidBrush(Color.Tomato)
             };
             // count of balls
             labelBalls.Text = ballsCount.ToString();
@@ -215,7 +215,7 @@ namespace WinForms.Forms
                 case RocketMoveDirections.None:
                     break;
             }
-            e.Graphics.FillRectangle(rocket.brush,
+            e.Graphics.FillRectangle(rocket.Brush,
                 rocket.X, this.ClientSize.Height - rocket.H,
                 rocket.W, rocket.H);
 
@@ -317,7 +317,7 @@ namespace WinForms.Forms
             public int W { get; set; }          // width
             public int H { get; set; }          // height
             public int V { get; set; }          // speed
-            public Brush? brush { get; set; }    // brush for painting
+            public Brush Brush { get; set; }    // brush for painting
 
             // method for moving
             public void Track()
@@ -368,6 +368,7 @@ namespace WinForms.Forms
         }
     }
 }
+
 
 
 /* GDI - Graphic Device Interface

@@ -41,6 +41,11 @@
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 40;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveBorder;
@@ -147,6 +152,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(373, 235);
             this.Controls.Add(this.panel1);
+            this.DoubleBuffered = true;
             this.MdiChildrenMinimizedAnchorBottom = false;
             this.Name = "GDIForm";
             this.Text = "GDIForm";
